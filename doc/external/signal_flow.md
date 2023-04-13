@@ -6,7 +6,7 @@ weight: 14
 
  The general block overview is shown in the picture below. Physical signals are linked to logic in the Input Mapping block. Then all these signals are processed in the Drive Logic block ( literally, it defines how output reacts to the input ). Drive Logic block is divided into seven subcategories. Processed signals from this block are used for the control of the outputs.
 
-![lynxoverview.jpg](../pics/lynx_overview.jpg)
+![lynxoverview.jpg](/public/lynx_overview.jpg)
 
 ## Input mapping
 
@@ -23,7 +23,7 @@ More information can be found in Mode chapter
 
 There are four independent sources of braking in Lynx. Each of them can be activated/deactivated and modified by dedicated parameters. The braking input, that has the highest value, is fed to the driver block and used as its **cmd** (driver mode is 8 in this scenario). Signal flow of braking signal is visible on the picture below. All the braking inputs (and their signal flow) are closely described in the upcoming chapters.
 
-![brakegeneral.jpg](../pics/lynx_braking.jpg)
+![brakegeneral.jpg](/public/lynx_braking.jpg)
 
 ### Static brake
 
@@ -31,7 +31,7 @@ Static brake is a basic braking source. A push button is usually used as input e
 
 > This function is activated if in_sbrake is mapped to a valid physical input
 
-![sbrake.jpg](../pics/lynx_braking_static.jpg)
+![sbrake.jpg](/public/lynx_braking_static.jpg)
 
 ### Dynamic brake
 
@@ -41,7 +41,7 @@ Static brake is a basic braking source. A push button is usually used as input e
 
   > There are also some advanced modes combining throttle & dynamic brake. More information about these is stated in accleration chapter
 
-![dbrake.jpg](../pics/lynx_braking_dynamic.jpg)
+![dbrake.jpg](/public/lynx_braking_dynamic.jpg)
 
 ### Throttle braking
 
@@ -51,11 +51,11 @@ Static brake is a basic braking source. A push button is usually used as input e
 
   >Motor will spin in opposite direction if signal from throttle is negative and **comlvl** is set to 0
 
- ![speedbraking.jpg](../pics/throttle_braking_lynx.jpg)
+ ![speedbraking.jpg](/public/throttle_braking_lynx.jpg)
 
  General signal flow for throttle braking is depicted here:
 
- ![tbrake.jpg](../pics/lynx_braking_throttle.jpg)
+ ![tbrake.jpg](/public/lynx_braking_throttle.jpg)
 
 ### Reverse pedaling braking
 
@@ -65,7 +65,7 @@ The system can generate negative signal from reverse pedaling if the tachopas bl
 
 Reverse pedaling signal flow
 
-![pbrake.jpg](../pics/lynx_braking_pas.jpg)
+![pbrake.jpg](/public/lynx_braking_pas.jpg)
 
 ## Acceleration
 
@@ -73,7 +73,7 @@ The system offers advanced features in reference to acceleration, such as thrott
 
 Features are dived in sub-chapters to simplify their explanations. But first let`s descibe the common part of the accleration signal flow. (see pic below). Generic throttle input is fed through safety block. This can disable acceleration command if there is a safety hazard (more in coresponding chapter). Then the acceleration signal is multiplied by value of parameter **acclvl** (defines maximal value of acceleration command). Multiplied signal (sig_acc) is going to the state machine. sig_acc is directly transfered as cmd for driver, and driver motor mode is defined by parameter **drvmode** (user can select what motor mode will be used for acceleration)
 
-![throttlegeneral.jpg](../pics/lynx_accel.jpg)
+![throttlegeneral.jpg](/public/lynx_accel.jpg)
 
 ### Throttle
 
@@ -81,7 +81,7 @@ Generic analogue throttle input. The signal is normalized in ASC block, shaped i
 
 Throttle signal flow:
 
-![throttle.jpg](../pics/lynx_throttle_simple.jpg)
+![throttle.jpg](/public/lynx_throttle_simple.jpg)
 ### Reversing from dynamic brake
 
 Signal from dynamic brake (after CSC) is substracted from throttle signal (after CSC). Both positive and negative signal continues via the same path (as general throttle signal), but negative value of the acceleration signal cause opposite direction of the motor spinning. 
@@ -90,7 +90,7 @@ This function can be helpful if there is a need for instant transition to revers
 
 > This function is activated if paramter **drvopts** is set to 4
 
-![throttlereverse.jpg](../pics/lynx_throttle_fusion_reverse.jpg)
+![throttlereverse.jpg](/public/lynx_throttle_fusion_reverse.jpg)
 
 ### Throttle & brake fusion
 
@@ -98,7 +98,7 @@ The signal path is the same as in the previous mode (dynamic brake is substracte
 
 >This function is activated if paramter **drvopts** is set to 12
 
-![throttlefusion.jpg](../pics/lynx_throttle_fusion_brake.jpg)
+![throttlefusion.jpg](/public/lynx_throttle_fusion_brake.jpg)
 
 
 ### E-clutch
@@ -107,7 +107,7 @@ This mode can be used as an emulation of the clutch from conventional motorbikes
 
 >This function is activated if in_clutch is mapped to a valid physical input
 
-![throttlefusion.jpg](../pics/lynx_throttle_clutch.jpg)
+![throttlefusion.jpg](/public/lynx_throttle_clutch.jpg)
 
 ## Pedal Assistant System
 
@@ -119,7 +119,7 @@ In default state, only the cadence sensor is used (but cadence is implemented in
 
 PAS default configuration:
 
-![pas.jpg](../pics/lynx_pas.jpg)
+![pas.jpg](/public/lynx_pas.jpg)
 
 ### PAS with torque sensor
 
@@ -127,7 +127,7 @@ This is advanced option of PAS where also infromation about force acting on peda
 
 >This advanced PAS function is activated if in_torque is mapped to a valid physical input
 
-![pastorque.jpg](../pics/lynx_pas_torque.jpg)
+![pastorque.jpg](/public/lynx_pas_torque.jpg)
 
 ### PAS with human watts 
 
@@ -139,13 +139,13 @@ The final block of this advanced fusion is Max value selector. It send to its ou
 
 >This advanced PAS function is activated if in_torque is mapped to a valid physical input and trqgain is not equal to zero
 
-![pashw.jpg](../pics/lynx_pas_hw.jpg)
+![pashw.jpg](/public/lynx_pas_hw.jpg)
 
 ## User Maps
 
 By the term “map”, we refer to an end-user selectable configuration for the drivetrain system. This allows to the user to choose the best settings for the given ride conditions. The configuration is made in the way, that if a particular map is entered, its parameters (defined in the particular map folder) are applied to system as limiting values. This can be seen in the picture below
 
-![usermaps.jpg](../pics/lynx_usermaps.jpg)
+![usermaps.jpg](/public/lynx_usermaps.jpg)
 
 ### Map types
 
@@ -161,7 +161,7 @@ There are 5 types of maps:
  
  There are also one safety map (map0) and one special reverse map (revmap), as addition to these accessible maps (an example is depicted in the picture below)
 
- ![pashw.jpg](../pics/lynx_mapcount.jpg)
+ ![pashw.jpg](/public/lynx_mapcount.jpg)
 
  ### Map change
 
@@ -181,7 +181,7 @@ Lynx incorporates several functions for achieving higher safety.
 
 In-built safety system. It can check several inputs and based on its values, the throttle signal path can be disabled (before entering driver) together with the cruise function. This ensures that the motor will not accelerate from the throttle path and cruise is deactivated, if there is a safety risk. Overall structure is shown in the picture below.
 
- ![disarming.jpg](../pics/lynx_safety_disarming.jpg)
+ ![disarming.jpg](/public/lynx_safety_disarming.jpg)
 
 There are several sources, considered as potential safety risk initiators. These are divided into categories stated below
 
@@ -219,7 +219,7 @@ The system offers second analogue throttle input for ensuring higher safety of t
 
 >It is possible also to use just a digital swith for checking zero position of the throttle 
 
- ![safetythrottle.jpg](../pics/lynx_safety_throttle.jpg)
+ ![safetythrottle.jpg](/public/lynx_safety_throttle.jpg)
 
 ## Cruise
 
@@ -227,7 +227,7 @@ Cruise function is currently disabled for all Lynx builds
 
 Block structure is shown in the picutre below
 
- ![cruise.jpg](../pics/lynx_cruise.jpg)
+ ![cruise.jpg](/public/lynx_cruise.jpg)
 ### Assisted walk function
 
 It is a special mode of cruise. This feature can be helpful for pushing a bike up to a hill. Walk is activated by pressing and holding of the mapped input button and is working unitl the button is relased. Speed level of the assist function can be set by parameter `walklvl`

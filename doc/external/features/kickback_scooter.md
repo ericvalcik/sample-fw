@@ -9,7 +9,7 @@ This feature will extend your travel distance on kickback scooter.
 
 Any brake input will disable this. So you can not use it with combined brake.  
 
-![graph](./../../pics/lynx_kickback_helper.jpg)
+![graph](/public/lynx_kickback_helper.jpg)
 
 > ## Safety notes
 > Always use brake input with this feature!  
